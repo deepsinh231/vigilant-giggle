@@ -11,9 +11,11 @@ import Post from "./File/Post.jsx";
 import Button from "./Button.jsx";
 import Allpost from "./Allpost.jsx";
 import Mypost from "./Mypost.jsx";
+import Editpost from "./Editpost.jsx";
 
 export {
   Footer,
+  Editpost,  
   Mypost,
   Post,
   Tiny,

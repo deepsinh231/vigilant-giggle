@@ -4,10 +4,13 @@ import { Input, Tiny } from '../index';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
 import axios from 'axios';
 
 const AddPost = ({ post }) => {
     const [state, setstate] = useState(false)
+
     const { handleSubmit, control, register, setValue, watch, reset, getValues } = useForm({
         defaultValues: {
             title: post?.title || '',
@@ -21,17 +24,32 @@ const AddPost = ({ post }) => {
 
     const onSubmit = async (data) => {
         setstate(true)
-        try {
-            const postData = { ...data, userId: useDate.id };
-            const response = await axios.post('https://cautious-sniffle.netlify.app/.netlify/functions/api/add-post', postData); // Adjust the URL if necessary
-            if (response.data) {
-                navigate(`/post/${response.data.post._id}`)
+        if (post) {
+            try {
+                const response = await axios.put(`https://cautious-sniffle.netlify.app/.netlify/functions/api/edit/${post?._id}`, data); // Adjust the URL if necessary
+                if (response.data) {
+                    navigate(`/post/${post?._id}`)
+                    toast.success('Post Edit successfully!');
+                }
+                reset();
+            } catch (error) {
+                console.error('There was an error creating the post!', error);
+            } finally {
+                setstate(false);
             }
-            reset();
-        } catch (error) {
-            console.error('There was an error creating the post!', error);
-        } finally {
-            setstate(false);
+        } else {
+            try {
+                const postData = { ...data, userId: useDate.id };
+                const response = await axios.post('https://cautious-sniffle.netlify.app/.netlify/functions/api/add-post', postData); // Adjust the URL if necessary
+                if (response.data) {
+                    navigate(`/post/${response.data.post._id}`)
+                }
+                reset();
+            } catch (error) {
+                console.error('There was an error creating the post!', error);
+            } finally {
+                setstate(false);
+            }
         }
     };
     const slugTransform = useCallback((value) => {

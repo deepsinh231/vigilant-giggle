@@ -3,7 +3,7 @@ import {
 } from "react-router-dom";
 import HomeMain from "./LoadingAndAuth/Home_Main";
 import { Login, Register } from "./Pages";
-import { Protected, HiroSec, Addpost, Mypost, Post, Allpost } from "./Component";
+import { Protected, HiroSec, Addpost, Editpost, Mypost, Post, Allpost } from "./Component";
 
 const App = createBrowserRouter([
   {
@@ -50,6 +50,14 @@ const App = createBrowserRouter([
           <Protected authetication>
             {" "}
             <Post />
+          </Protected>),
+      },
+      {
+        path: "/edit-post/:_id",
+        element: (
+          <Protected authetication>
+            {" "}
+            <Editpost />
           </Protected>),
       },
       {
