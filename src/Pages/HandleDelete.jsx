@@ -5,7 +5,6 @@ const HandleDelete = async (userData, posid) => {
         const respo = await axios.delete(`https://cautious-sniffle.netlify.app/.netlify/functions/api/delete/${posid}`, {
             headers: {
                 Authorization: `Bearer ${userData.token}`
-                , "deleteID": `Bearer ${posid}`
             }
         });
         return respo;
