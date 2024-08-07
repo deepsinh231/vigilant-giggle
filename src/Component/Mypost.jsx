@@ -12,10 +12,9 @@ export default function Mypost() {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get(`https://cautious-sniffle.netlify.app/.netlify/functions/api/mypost`, {
+                const response = await axios.get(`https://cautious-sniffle.netlify.app/.netlify/functions/api/mypost/${userdata?.id}`, {
                     headers: {
                         Authorization: `Bearer ${userdata?.token}`,
-                        'x-user-id': userdata?.id
                     }
                 });
                 if (Array.isArray(response.data)) {
