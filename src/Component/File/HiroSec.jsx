@@ -14,7 +14,7 @@ export default function HiroSec() {
                     </h1>
                     <p className="mb-8 md:pl-0  pl-2 pr-2 leading-relaxed dark:text-gray-300">
                         Short description here, Short description here Short description here Short description here Short
-                        description here Short description here.
+                        description here Short description here_.
                     </p>
                     <div className="flex justify-center">
                         <Link to="/allposts"

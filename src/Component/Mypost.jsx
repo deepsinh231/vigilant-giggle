@@ -34,7 +34,7 @@ export default function Mypost() {
         fetchPosts()
     }, [userdata?.id]);
     if (loading) return <div>Loading...</div>;
-    if (post.length === 0) {
+    if (!post) {
         return <div className="container mx-auto p-6">
             <h1 className="text-3xl font-bold mb-4 text-center py-20">No posts available.</h1></div>;
     }
