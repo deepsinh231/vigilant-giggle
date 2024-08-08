@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { FaUserTie } from "react-icons/fa";
+import { logotext } from '../../content_option'
+import { FaBlog, FaUserTie } from "react-icons/fa";
 
 export default function Header({ onLogout }) {
     const { userdata } = useSelector((state) => state.auth);
@@ -29,8 +30,9 @@ export default function Header({ onLogout }) {
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex relative flex-wrap items-center justify-between mx-auto p-4">
-                <Link to="/" className='className="flex items-center space-x-3 rtl:space-x-reverse"'>
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BlogPost</span>
+                <Link to="/" className='flex items-center space-x-3 rtl:space-x-reverse'>
+                    <FaBlog className=' dark:text-white' />
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{logotext}</span>
                 </Link>
 
                 <div className="flex relative items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">

@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import { FaBlog } from "react-icons/fa";
+import { logotext } from "../../content_option";
 
 export default function Footer() {
     return (
@@ -22,9 +25,11 @@ export default function Footer() {
                 <hr className="h-px bg-gray-200 border-none my-7 dark:bg-gray-700" />
 
                 <div className="flex flex-col items-center justify-between md:flex-row">
-                    <a href="#">
-                        <img className="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt="" />
-                    </a>
+                    <Link to="/" className='flex  items-center space-x-3 rtl:space-x-reverse'>
+                        <FaBlog className="dark:text-white"/>
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{logotext}</span>
+                    </Link>
+
 
                     <div className="flex mt-4 md:m-0">
                         <div className="-mx-4">

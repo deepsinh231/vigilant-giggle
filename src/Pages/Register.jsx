@@ -5,6 +5,7 @@ import { useState } from "react";
 import { login } from '../Store/AuthSlice'
 import { useForm } from 'react-hook-form'
 import { registerUser } from "./registerUser";
+import { FaBlog } from "react-icons/fa";
 
 export default function Register() {
     const dispatch = useDispatch()
@@ -77,7 +78,7 @@ export default function Register() {
     return (
         <div className="w-full max-w-sm my-10 p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div className="flex justify-center mx-auto">
-                <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="" />
+            <FaBlog className="text-5xl dark:text-white"/>
             </div>
 
             <form id="creteform" className="mt-6"
